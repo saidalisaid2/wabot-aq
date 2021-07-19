@@ -16,7 +16,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
                 conn.sendFile(m.chat, buff, ran, null, m, true, { quoted: m, mimetype: 'audio/mp4' })
                 fs.unlinkSync(ran)
             })
-        } else throw `Balas vn/audio yang ingin diubah dengan caption *${usedPrefix + command}*`
+        } else throw `Balas vn/audio ഇത് അടിക്കുറിപ്പോടെ മാറ്റാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നു *${usedPrefix + command}*`
     } catch (e) {
         throw e
     }
