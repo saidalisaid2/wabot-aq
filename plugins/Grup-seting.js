@@ -7,7 +7,7 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
 	await conn.updatePresence(m.chat, Presence.composing)
 	if (isClose === undefined)
 		throw `
-*Format salah! Contoh :*
+*തെറ്റായ ഫോർമാറ്റ് anunnenba! ഉദാഹരണം :*
 
   *○ ${usedPrefix + command} close*
   *○ ${usedPrefix + command} open*
