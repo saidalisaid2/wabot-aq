@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.asahotak = conn.asahotak ? conn.asahotak : {}
     let id = m.chat
     if (id in conn.asahotak) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.asahotak[id][0])
+        conn.reply(m.chat, 'ഈ ചാറ്റിൽ ഇപ്പോഴും ഉത്തരം ലഭിക്കാത്ത ചോദ്യങ്ങളുണ്ട്', conn.asahotak[id][0])
         throw false
     }
     let res = await fetch(global.API('xteam', '/game/asahotak', {}, 'APIKEY'))
@@ -24,8 +24,8 @@ Bonus: ${poin} XP
         await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.asahotak[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, conn.asahotak[id][0])
-            delete conn.asahotak[id]
+            if (conn.asahotak[id]) conn.reply(m.chat, `സമയം കഴിഞ്ഞു!\nഉത്തരം *${json.result.jawaban}*`, conn.asahotak[id][0])
+            delete conn.asahotak[id
         }, timeout)
     ]
 }
