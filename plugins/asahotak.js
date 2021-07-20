@@ -25,7 +25,7 @@ Bonus: ${poin} XP
         json, poin,
         setTimeout(() => {
             if (conn.asahotak[id]) conn.reply(m.chat, `സമയം കഴിഞ്ഞു!\nഉത്തരം *${json.result.jawaban}*`, conn.asahotak[id][0])
-            delete conn.asahotak[id
+            delete conn.asahotak[id]
         }, timeout)
     ]
 }
