@@ -15,13 +15,13 @@ async function handler(m, { command }) {
             if (command === 'leave') break
         }
         case 'start': {
-            if (Object.values(this.anonymous).find(room => room.check(m.sender))) throw 'Kamu masih berada di dalam anonymous chat'
+            if (Object.values(this.anonymous).find(room => room.check(m.sender))) throw 'നിങ്ങൾ ഇപ്പോഴും അജ്ഞാത ചാറ്റിലാണ്'
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
                 this.sendMessage(room.a, 'Menemukan partner!', MessageType.text)
                 room.b = m.sender
                 room.state = 'CHATTING'
-                m.reply('Menemukan partner!')
+                m.reply('ഒരു പങ്കാളിയെ കണ്ടെത്തുക!')
             } else {
                 let id = + new Date
                 this.anonymous[id] = {
@@ -36,7 +36,7 @@ async function handler(m, { command }) {
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                m.reply('Menunggu parter...')
+                m.reply('പങ്കാളിക്കായി കാത്തിരിക്കുന്നു...')
             }
             break
         }
