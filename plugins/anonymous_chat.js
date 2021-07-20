@@ -7,10 +7,10 @@ async function handler(m, { command }) {
         case 'next':
         case 'leave': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (!room) throw 'Kamu tidak sedang berada di anonymous chat'
+            if (!room) throw 'നിങ്ങൾ അജ്ഞാത ചാറ്റിലല്ല'
             m.reply('Ok')
             let other = room.other(m.sender)
-            if (other) this.sendMessage(other, 'Partner meninggalkan chat', MessageType.text)
+            if (other) this.sendMessage(other, 'പങ്കാളികൾ ചാറ്റ് ഉപേക്ഷിക്കുന്നു', MessageType.text)
             delete this.anonymous[room.id]
             if (command === 'leave') break
         }
@@ -18,7 +18,7 @@ async function handler(m, { command }) {
             if (Object.values(this.anonymous).find(room => room.check(m.sender))) throw 'നിങ്ങൾ ഇപ്പോഴും അജ്ഞാത ചാറ്റിലാണ്'
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
-                this.sendMessage(room.a, 'Menemukan partner!', MessageType.text)
+                this.sendMessage(room.a, 'ഒരു പങ്കാളിയെ കണ്ടെത്തുക!', MessageType.text)
                 room.b = m.sender
                 room.state = 'CHATTING'
                 m.reply('ഒരു പങ്കാളിയെ കണ്ടെത്തുക!')
